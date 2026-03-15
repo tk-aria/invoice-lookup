@@ -73,7 +73,12 @@ async fn handle_lookup(ctx: &AppContext, t_number: &str, json: bool) {
     }
 }
 
-async fn handle_batch(ctx: &AppContext, numbers: Vec<String>, file: Option<String>, json: bool) {
+async fn handle_batch(
+    ctx: &AppContext,
+    numbers: Vec<String>,
+    file: Option<String>,
+    json: bool,
+) {
     let mut all_numbers = numbers;
 
     if let Some(path) = file {

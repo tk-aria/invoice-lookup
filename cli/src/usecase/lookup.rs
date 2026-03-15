@@ -17,7 +17,10 @@ impl LookupInvoiceUseCase {
         self.repo.find_by_t_number(t_number).await
     }
 
-    pub async fn execute_batch(&self, t_numbers: &[String]) -> Vec<Result<InvoiceRegistration, String>> {
+    pub async fn execute_batch(
+        &self,
+        t_numbers: &[String],
+    ) -> Vec<Result<InvoiceRegistration, String>> {
         self.repo.find_batch(t_numbers).await
     }
 }

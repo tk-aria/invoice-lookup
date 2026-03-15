@@ -106,15 +106,30 @@ mod tests {
 
     #[test]
     fn test_csv_date_parse() {
-        assert_eq!(SimpleDate::from_csv_date("2025/01/02"), Some(SimpleDate(2025, 1, 2)));
-        assert_eq!(SimpleDate::from_csv_date("2023/10/01"), Some(SimpleDate(2023, 10, 1)));
+        assert_eq!(
+            SimpleDate::from_csv_date("2025/01/02"),
+            Some(SimpleDate(2025, 1, 2))
+        );
+        assert_eq!(
+            SimpleDate::from_csv_date("2023/10/01"),
+            Some(SimpleDate(2023, 10, 1))
+        );
     }
 
     #[test]
     fn test_japanese_date_parse() {
-        assert_eq!(SimpleDate::from_japanese_date("令和5年10月1日"), Some(SimpleDate(2023, 10, 1)));
-        assert_eq!(SimpleDate::from_japanese_date("令和3年11月19日"), Some(SimpleDate(2021, 11, 19)));
-        assert_eq!(SimpleDate::from_japanese_date("平成31年4月30日"), Some(SimpleDate(2019, 4, 30)));
+        assert_eq!(
+            SimpleDate::from_japanese_date("令和5年10月1日"),
+            Some(SimpleDate(2023, 10, 1))
+        );
+        assert_eq!(
+            SimpleDate::from_japanese_date("令和3年11月19日"),
+            Some(SimpleDate(2021, 11, 19))
+        );
+        assert_eq!(
+            SimpleDate::from_japanese_date("平成31年4月30日"),
+            Some(SimpleDate(2019, 4, 30))
+        );
     }
 
     #[test]

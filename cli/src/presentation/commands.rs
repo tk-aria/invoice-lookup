@@ -2,7 +2,11 @@ use clap::{Parser, Subcommand};
 
 /// インボイス登録番号検索 CLI
 #[derive(Parser)]
-#[command(name = "invoice-cli", version, about = "NTA Invoice Registration Lookup CLI")]
+#[command(
+    name = "invoice-cli",
+    version,
+    about = "NTA Invoice Registration Lookup CLI"
+)]
 pub struct Cli {
     #[command(subcommand)]
     pub command: Commands,

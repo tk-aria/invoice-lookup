@@ -37,7 +37,7 @@ jobs:
         run: cargo clippy --workspace -- -D warnings
 
       - name: Test (unit tests)
-        run: cargo test -p invoice-lookup-cli --lib
+        run: cargo test -p invoice-lookup-cli
 
       - name: Build check
         run: cargo check --workspace
