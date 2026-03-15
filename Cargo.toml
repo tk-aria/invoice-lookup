@@ -1,0 +1,18 @@
+[package]
+name = "invoice-lookup"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+license = "MIT OR Apache-2.0"
+description = "Rust crate for looking up Japan NTA Invoice Registration System"
+repository = "https://github.com/tk-aria/invoice-lookup"
+
+[dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
+scraper = "0.22"
+tokio = { version = "1", features = ["full"] }
+thiserror = "2"
+serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+tokio-test = "0.4"
