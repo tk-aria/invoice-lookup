@@ -55,7 +55,11 @@ async fn handle_lookup(ctx: &AppContext, t_number: &str, json: bool) {
             if json {
                 println!("{}", serde_json::to_string_pretty(&info).unwrap());
             } else {
-                let status = if info.registered { "登録済" } else { "未登録" };
+                let status = if info.registered {
+                    "登録済"
+                } else {
+                    "未登録"
+                };
                 println!("T番号:       {}", info.t_number);
                 println!("ステータス:  {}", status);
                 if info.registered {
@@ -73,12 +77,7 @@ async fn handle_lookup(ctx: &AppContext, t_number: &str, json: bool) {
     }
 }
 
-async fn handle_batch(
-    ctx: &AppContext,
-    numbers: Vec<String>,
-    file: Option<String>,
-    json: bool,
-) {
+async fn handle_batch(ctx: &AppContext, numbers: Vec<String>, file: Option<String>, json: bool) {
     let mut all_numbers = numbers;
 
     if let Some(path) = file {
@@ -118,7 +117,11 @@ async fn handle_batch(
         for result in &results {
             match result {
                 Ok(info) => {
-                    let status = if info.registered { "登録済" } else { "未登録" };
+                    let status = if info.registered {
+                        "登録済"
+                    } else {
+                        "未登録"
+                    };
                     println!("{} => {} {}", info.t_number, status, info.name);
                 }
                 Err(e) => {
