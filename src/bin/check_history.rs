@@ -4,7 +4,9 @@ use std::fs;
 
 #[tokio::main]
 async fn main() {
-    let csv_path = std::env::args().nth(1).unwrap_or_else(|| "history.csv".to_string());
+    let csv_path = std::env::args()
+        .nth(1)
+        .unwrap_or_else(|| "history.csv".to_string());
     let content = fs::read_to_string(&csv_path).expect("Failed to read CSV");
     let mut lines: Vec<String> = content.lines().map(|l| l.to_string()).collect();
 
@@ -50,7 +52,15 @@ async fn main() {
                 let digits = tnum.strip_prefix('T').unwrap_or(tnum);
                 status_map.insert(digits.to_string(), info.registered);
                 status_map.insert(format!("T{}", digits), info.registered);
-                eprintln!("  {} => {}", tnum, if info.registered { "登録済" } else { "未登録" });
+                eprintln!(
+                    "  {} => {}",
+                    tnum,
+                    if info.registered {
+                        "登録済"
+                    } else {
+                        "未登録"
+                    }
+                );
             }
             Err(e) => {
                 eprintln!("  {} => ERROR: {}", tnum, e);
