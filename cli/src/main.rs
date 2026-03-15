@@ -146,11 +146,18 @@ async fn handle_check_history(ctx: &AppContext, input: &str, output: Option<&str
     eprintln!("=== 処理結果 ===");
     eprintln!("  合計:     {} 行", summary.total);
     eprintln!("  登録済:   {}", summary.registered);
+    eprintln!("  登録前:   {}", summary.before_registration);
     eprintln!("  未登録:   {}", summary.unregistered);
     eprintln!("  番号なし: {}", summary.no_number);
     eprintln!("  エラー:   {}", summary.errors);
     if !summary.unregistered_numbers.is_empty() {
         eprintln!("  未登録番号: {}", summary.unregistered_numbers.join(", "));
+    }
+    if !summary.before_registration_entries.is_empty() {
+        eprintln!(
+            "  登録前エントリ: {}",
+            summary.before_registration_entries.join(", ")
+        );
     }
     eprintln!("出力: {}", out_path);
 }
